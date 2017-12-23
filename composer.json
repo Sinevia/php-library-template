@@ -1,0 +1,20 @@
+{
+    "name": "sinevia/php-library-template",
+    "description": "PHP Library Template",
+    "version": "0.0.1",
+    "type": "library",
+    "keywords": ["template", "library", "php", "sinevia"],    
+    "homepage": "http://github.com/sinevia/php-library-template",
+    "license": "commercial",
+    "authors": [
+        {
+            "name": "Milan Lesichkov",
+            "email": "lesichkovm@gmail.com",
+            "homepage": "http://lesichkov.co.uk",
+            "role": "Lead Developer"
+        }
+    ],
+    "autoload": {
+        "files": ["src/Template.php"]
+    }
+}
