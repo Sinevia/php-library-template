@@ -44,9 +44,7 @@ Add the following to your composer file:
 
 ## Usage ##
 
-```
-#!php
-
+```php
 $html = \Sinevia\Template::fromString($templateContent, [
      'page_meta_description' => $pageMetaDescription,
      'page_meta_keywords' => $pageMetaKeywords,
@@ -55,4 +53,13 @@ $html = \Sinevia\Template::fromString($templateContent, [
      'page_title' => $pageTitle,
      'page_content' => $pageContent,
 ]);
+```
+
+```php
+\Sinevia\Template::setCache('key','content',array(
+     'post'=>true,
+     'get'=>true,
+     'session'=>true,
+     'expires'=>3600 // Default
+));
 ```
