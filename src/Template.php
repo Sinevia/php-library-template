@@ -246,7 +246,7 @@ class Template {
      * This is a JavaScript minifying function, but beware it is too agressive
      * you may need to disable it if you have too much strings.
      */
-    function bind_js_minify($js) {
+    public static function minifyJs($js) {
         //var_dump($js);
         $js_start = '<script' . $js[1] . '>';
         $js_end = '</script>';
