@@ -15,15 +15,32 @@ Add the following to your composer file:
 ## Functionality ##
 
 ### 1) From File ###
+
+```php
 \Sinevia\Template::fromFile($templateFilepath, $data = array());
+```
 
 ### 2) From String ###
+
+```php
 \Sinevia\Template::fromString($templateString, $data = array());
+```
 
 ### 3) Cache ###
+
+```php
 \Sinevia\Template::setCacheDirectory($cacheDirPath);
 \Sinevia\Template::setCache($key, $content, $options = array());
 \Sinevia\Template::getCache($key, $options = array());
+```
+### 3) Helpers ###
+
+```php
+\Sinevia\Template::minifyHtml($html);
+\Sinevia\Template::minifyCss($css);
+\Sinevia\Template::minifyJs($js);
+```
+
 
 ## Usage ##
 
