@@ -167,7 +167,7 @@ class Template {
         //if ($debug === true) { print_r($flattened_entries); }
         //$entries = array_merge($entries,$flattened_entries);
         $defined_constants = get_defined_constants(true);
-        $user_constants = $defined_constants['user'];
+        $user_constants = $defined_constants['user'] ?? [];
         foreach ($user_constants as $key => $value) {
             $templateContent_72003d61156f = str_replace('{' . $key . '}', '<?php echo ' . $key . ';?>', $templateContent_72003d61156f);
             $templateContent_72003d61156f = str_replace($start_delimiter_72003d61156f . '' . $key . $end_delimiter_72003d61156f, '<?php echo ' . $key . ';?>', $templateContent_72003d61156f);
