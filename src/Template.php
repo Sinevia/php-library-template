@@ -19,6 +19,14 @@ class Template {
 
     private static $cache_directory = null;
 
+    private static function findLayout($content) {
+        preg_match("/\[layout::(.*?)]/", $content, $matches);
+        if (isset($matches[1])) {
+            return $matches[1];
+        }
+        return null;
+    }
+
     /**
      * * <code>
      * Template::getCache('key',array(
@@ -135,9 +143,9 @@ class Template {
             echo '<h3>Required template "' . $template_file . '" DOES NOT exist!</h3>';
             exit;
         }
-        
+
         $templateContents = file_get_contents($template_file);
-        return self::fromString($templateContents,$entries);
+        return self::fromString($templateContents, $entries);
     }
 
     /**
@@ -157,6 +165,7 @@ class Template {
         $minify_css_72003d61156f = (isset($options['minify_css']) == false) ? true : $options['minify_css'];
         $minify_js_72003d61156f = (isset($options['minify_js']) == false) ? true : $options['minify_js'];
         $debug_72003d61156f = (isset($options['debug']) == false) ? false : $options['debug'];
+        $layout = self::findLayout($template_string);
 
         $templateContent_72003d61156f = $template_string;
 
@@ -214,7 +223,14 @@ class Template {
 //            $template = preg_replace_callback('/\<script([^>]*)\>([^<]*)\<\/script\>/i', 'bind_js_minify', $template);
 //        }
         ob_get_clean();
-        return $templateContent_72003d61156f;
+
+        if (is_null($layout)) {
+            return $templateContent_72003d61156f;
+        }
+
+        $content = str_replace('[layout::' . $layout . ']', '', $templateContent_72003d61156f);
+
+        return self::fromFile($layout, ['content' => $content]);
     }
 
     public static function minifyHtml($html) {
