@@ -63,3 +63,21 @@ $html = \Sinevia\Template::fromString($templateContent, [
      'expires'=>3600 // Default
 ));
 ```
+
+
+## Layout ##
+
+1. Template file:
+
+```php
+[layout::public/guest/layout.phtml]
+
+CONTENT
+```
+
+2. Layout file:
+
+```php
+<?php echo $content; ?>
+
+```
