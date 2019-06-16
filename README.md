@@ -1,6 +1,14 @@
 # PHP Library Template
 
-Template is a simple, yet powerful templating engine. Unlike other popular PHP templating engines, Template does not create its own "language", when PHP already does this.
+Template is a simple, yet powerful templating engine in single file.
+
+![No Dependencies](https://img.shields.io/badge/no-dependencies-success.svg)
+
+## Features ##
+
+- Single file. No external dependencies
+- No new "language" to learn. Familiar PHP syntax.
+- Default templates extension .phtml
 
 ## Installation ##
 
